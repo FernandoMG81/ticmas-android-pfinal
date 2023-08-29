@@ -8,7 +8,6 @@ import com.curso.android.app.ticmas_proyecto_final.model.Message
 import kotlinx.coroutines.launch
 
 class MainViewModel: ViewModel(){
-
     val message: LiveData<Message> get() = _message
     val inputErrorText1: LiveData<String?> get() = _inputErrorText1
     val inputErrorText2: LiveData<String?> get() = _inputErrorText2
@@ -40,8 +39,8 @@ class MainViewModel: ViewModel(){
 
     fun compareStrings(firstInput: String, secondInput: String){
         val newMessage: String = when(firstInput == secondInput) {
-            true -> "Son textos iguales"
-            false -> "Son textos distintos"
+            true -> "Los textos son iguales"
+            false -> "Los textos son distintos"
         }
         updateMessage(newMessage)
     }
