@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ticmas-proyecto-final</string>
+    <string name="placeholder_first_text">Escriba el primer texto</string>
+    <string name="placeholder_second_text">Escriba el segundo texto</string>
+    <string name="button_text">Comparar</string>
+    <string name="equal_text">Son textos iguales</string>
+    <string name="no_equal_text">Son textos distintos</string>
+</resources>
