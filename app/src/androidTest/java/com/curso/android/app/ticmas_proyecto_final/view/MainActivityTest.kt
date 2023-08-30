@@ -18,13 +18,15 @@ class  MainActivityTest {
     var rule: ActivityScenarioRule<*> = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun mainActivity_compareTexts(){
+    fun mainActivity_compareEqualTexts(){
 
         Espresso.onView(ViewMatchers.withId(R.id.textInput1))
             .perform(ViewActions.typeText("ABC"))
+            .perform(ViewActions.closeSoftKeyboard())
 
         Espresso.onView(ViewMatchers.withId(R.id.textInput2))
             .perform(ViewActions.typeText("ABC"))
+            .perform(ViewActions.closeSoftKeyboard())
 
         Espresso.onView(ViewMatchers.withId(R.id.compareButton))
             .perform(ViewActions.click())
@@ -36,5 +38,15 @@ class  MainActivityTest {
                 ViewMatchers.withText("Los textos son iguales")
             )
         )
+    }
+
+    @Test
+    fun mainActivity_compareEmptyTexts(){
+
+        Espresso.onView(ViewMatchers.withId(R.id.compareButton))
+            .perform(ViewActions.click())
+
+        Espresso.onView(ViewMatchers.withId(R.id.textInput1))
+            .check(ViewAssertions.matches(ViewMatchers.hasErrorText("El campo no puede estar vacío")))
     }
 }
